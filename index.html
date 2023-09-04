@@ -1,0 +1,52 @@
+<!--Open Source Simple Kill Death Ratio Calculator Made By ShockxZZx#0 On Discord, www.FerretsLLC.com For More 😀 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Source K/D Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .calculator {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>K/D Calculator</h1>
+        <label for="kills">Kills:</label>
+        <input type="number" id="kills" min="0" value="0">
+        <br>
+        <label for="deaths">Deaths:</label>
+        <input type="number" id="deaths" min="0" value="0">
+        <br>
+        <button onclick="calculateKDR()">Calculate Your KDR</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateKDR() {
+            const kills = parseFloat(document.getElementById('kills').value);
+            const deaths = parseFloat(document.getElementById('deaths').value);
+
+            if (isNaN(kills) || isNaN(deaths) || deaths === 0) {
+                document.getElementById('result').innerText = "Invalid input. Please enter valid values.";
+            } else {
+                const kdr = kills / deaths;
+                document.getElementById('result').innerText = `Your Kill-Death Ratio (KDR) is: ${kdr.toFixed(2)}`;
+            }
+        }
+    </script>
+</body>
+</html>
